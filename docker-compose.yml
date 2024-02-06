@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus_config.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  sensor_reader:
+    build: .
+    devices:
+      - "/dev/gpiomem:/dev/gpiomem"
+    depends_on:
+      - prometheus
