@@ -9,6 +9,7 @@ services:
       - "9090:9090"
 
   sensor_reader:
+    privileged: true
     build: .
     devices:
       - "/dev/gpiomem:/dev/gpiomem"
