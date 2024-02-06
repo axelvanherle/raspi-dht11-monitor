@@ -16,4 +16,4 @@ start_http_server(8000)
 
 while True:
     read_sensor()
-    time.sleep(1)  # Read every minute
+    time.sleep(60) # read every 60 seconds
